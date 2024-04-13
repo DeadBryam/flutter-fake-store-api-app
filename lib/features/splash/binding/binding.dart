@@ -1,0 +1,1 @@
+export 'splash.binding.dart';
