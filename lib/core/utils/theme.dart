@@ -13,6 +13,9 @@ class ThemeUtil {
         color: Colors.black,
       ),
     ),
+    floatingActionButtonTheme: const FloatingActionButtonThemeData(
+      backgroundColor: ColorsUtil.primaryColor,
+    ),
     scaffoldBackgroundColor: Colors.white,
     textTheme: const TextTheme(
       displayLarge: TextStyle(fontSize: 72, fontWeight: FontWeight.bold),
