@@ -24,6 +24,7 @@ class HomeController extends GetxController {
   String get selectedCategory => _selectedCategory.value;
   String get username => (_auth.user?.name?.firstname ?? 'user'.tr).capitalize!;
   bool get isFetching => _isFetching.value;
+  bool get isAuth => _auth.isLogged;
 
   Future<void> fetchCategories() async {
     try {
@@ -63,6 +64,10 @@ class HomeController extends GetxController {
 
   void openProfile() {
     Get.toNamed<dynamic>(Routes.PROFILE);
+  }
+
+  void openCart() {
+    Get.toNamed<dynamic>(Routes.CART);
   }
 
   void onSearch() {

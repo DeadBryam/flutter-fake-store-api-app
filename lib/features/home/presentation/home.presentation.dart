@@ -9,6 +9,13 @@ class HomePresentation extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: controller.isAuth
+          ? FloatingActionButton(
+              onPressed: controller.openCart,
+              backgroundColor: Get.theme.primaryColor,
+              child: const Icon(Icons.shopping_cart),
+            )
+          : null,
       body: SafeArea(
         child: ListView(
           padding: const EdgeInsets.all(20),
