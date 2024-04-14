@@ -26,4 +26,18 @@ class ApiService extends GetxService {
       'products/categories',
     );
   }
+
+  Future<Response> getProducts() {
+    return _apiClient.execute(
+      RequestType.GET,
+      'products',
+    );
+  }
+
+  Future<Response> getProductById(int id) {
+    return _apiClient.execute(
+      RequestType.GET,
+      'products/$id',
+    );
+  }
 }
