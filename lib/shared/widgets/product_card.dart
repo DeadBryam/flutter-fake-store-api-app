@@ -28,8 +28,11 @@ class ProductCard extends StatelessWidget {
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
                   ),
-                  child: Image.network(
-                    product.image ?? '',
+                  child: Hero(
+                    tag: 'product_image_${product.id}',
+                    child: Image.network(
+                      product.image ?? '',
+                    ),
                   ),
                 ),
               ),
