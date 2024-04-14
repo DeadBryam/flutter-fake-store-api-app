@@ -2,7 +2,7 @@ import 'dart:async';
 import 'package:cart/core/core.dart';
 import 'package:cart/langs/langs.dart';
 import 'package:cart/routes/app.routes.dart';
-import 'package:cart/services/api.service.dart';
+import 'package:cart/services/services.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:get/get.dart';
@@ -21,7 +21,9 @@ class MainApp extends StatefulWidget {
 }
 
 Future<void> _initServices() async {
-  Get.lazyPut(ApiService.new);
+  Get
+    ..lazyPut(ApiService.new)
+    ..lazyPut(AuthService.new);
 }
 
 class _MainAppState extends State<MainApp> {
