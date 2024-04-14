@@ -39,6 +39,12 @@ class Routes {
       name: PRODUCT,
       page: ProductPresentation.new,
       binding: ProductBinding(),
+      middlewares: [AuthMiddleware()],
+    ),
+    GetPage(
+      name: CART,
+      page: CartPresentation.new,
+      binding: CartBinding(),
     ),
   ];
 }
