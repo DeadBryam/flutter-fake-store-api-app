@@ -35,10 +35,14 @@ class HomePresentation extends GetView<HomeController> {
                     ),
                   ],
                 ),
-                const CircleAvatar(
-                  radius: 22,
-                  backgroundColor: Colors.grey,
-                  child: Icon(Icons.person),
+                InkWell(
+                  borderRadius: const BorderRadius.all(Radius.circular(50)),
+                  onTap: controller.openProfile,
+                  child: const CircleAvatar(
+                    radius: 22,
+                    backgroundColor: Colors.grey,
+                    child: Icon(Icons.person),
+                  ),
                 ),
               ],
             ),
