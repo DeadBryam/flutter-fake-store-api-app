@@ -7,10 +7,8 @@ import 'package:get/get.dart';
 enum RequestType { GET, POST, PATCH, PUT, DELETE }
 
 class ApiClient extends GetConnect {
-  @override
-  void onInit() {
+  ApiClient() {
     _initClient();
-    super.onInit();
   }
 
   Future<void> _initClient() async {
