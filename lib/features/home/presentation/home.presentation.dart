@@ -92,8 +92,8 @@ class HomePresentation extends GetView<HomeController> {
                       physics: const NeverScrollableScrollPhysics(),
                       shrinkWrap: true,
                       crossAxisCount: 2,
-                      crossAxisSpacing: 10,
-                      mainAxisSpacing: 10,
+                      crossAxisSpacing: 20,
+                      mainAxisSpacing: 20,
                       childAspectRatio: 0.8,
                       children: List.generate(
                         controller.products.length,
