@@ -39,5 +39,8 @@ class EsLanguage {
         'product_removed_from_cart': 'Producto eliminado del carrito',
         'failed_to_remove_product_from_cart':
             'No se pudo eliminar el producto del carrito',
+        'no_products_found': 'No se encontraron productos',
+        'no_products_found_description':
+            'No se encontraron productos para mostrar',
       };
 }

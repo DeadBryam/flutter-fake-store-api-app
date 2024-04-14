@@ -37,5 +37,7 @@ class EnLanguage {
         'product_removed_from_cart': 'Product removed from cart',
         'failed_to_remove_product_from_cart':
             'Failed to remove product from cart',
+        'no_products_found': 'No products found',
+        'no_products_found_description': 'No products found to show',
       };
 }
