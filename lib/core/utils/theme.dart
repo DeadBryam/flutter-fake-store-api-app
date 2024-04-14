@@ -6,7 +6,7 @@ class ThemeUtil {
     primaryColor: ColorsUtil.primaryColor,
     fontFamily: 'Roboto',
     appBarTheme: const AppBarTheme(
-      backgroundColor: ColorsUtil.primaryColor,
+      backgroundColor: Colors.white,
       titleTextStyle: TextStyle(
         fontSize: 24,
         fontWeight: FontWeight.bold,
