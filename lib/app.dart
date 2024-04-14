@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:cart/core/core.dart';
 import 'package:cart/routes/app.routes.dart';
 import 'package:cart/services/api.service.dart';
 import 'package:flutter/material.dart';
@@ -32,6 +33,7 @@ class _MainAppState extends State<MainApp> {
           decelerationRate: ScrollDecelerationRate.fast,
         ),
       ),
+      theme: ThemeUtil.themeData,
       initialRoute: Routes.SPLASH,
       getPages: Routes.routes,
       defaultTransition: Transition.cupertino,
