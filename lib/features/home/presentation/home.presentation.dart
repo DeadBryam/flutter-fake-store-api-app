@@ -101,6 +101,7 @@ class HomePresentation extends GetView<HomeController> {
                           final product = controller.products[index];
                           return ProductCard(
                             product: product,
+                            onTap: controller.onProductTap,
                           );
                         },
                       ),

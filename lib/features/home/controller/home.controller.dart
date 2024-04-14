@@ -83,6 +83,13 @@ class HomeController extends GetxController {
     onSearch();
   }
 
+  void onProductTap(Product product) {
+    Get.toNamed<dynamic>(
+      Routes.PRODUCT,
+      parameters: {'id': product.id!.toString()},
+    );
+  }
+
   Future<void> _onInit() async {
     _isFetching.value = true;
     await fetchCategories();
