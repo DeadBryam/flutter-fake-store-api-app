@@ -110,3 +110,10 @@ app.*.map.json
 !.idea/codeStyles/
 !.idea/dictionaries/
 !.idea/runConfigurations/
+
+# Freezed files
+**.freezed.dart
+**.g.dart
+
+# Env
+.env
