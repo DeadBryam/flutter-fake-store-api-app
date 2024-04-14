@@ -5,6 +5,14 @@ class ThemeUtil {
   static final themeData = ThemeData(
     primaryColor: ColorsUtil.primaryColor,
     fontFamily: 'Roboto',
+    appBarTheme: const AppBarTheme(
+      backgroundColor: ColorsUtil.primaryColor,
+      titleTextStyle: TextStyle(
+        fontSize: 24,
+        fontWeight: FontWeight.bold,
+      ),
+    ),
+    scaffoldBackgroundColor: Colors.white,
     textTheme: const TextTheme(
       displayLarge: TextStyle(fontSize: 72, fontWeight: FontWeight.bold),
       titleLarge: TextStyle(fontSize: 36, fontStyle: FontStyle.italic),
