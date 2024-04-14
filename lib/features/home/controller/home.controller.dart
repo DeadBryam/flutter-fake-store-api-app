@@ -1,7 +1,7 @@
 import 'package:cart/core/core.dart';
 import 'package:cart/data/dto/dto.dart';
 import 'package:cart/routes/app.routes.dart';
-import 'package:cart/services/api.service.dart';
+import 'package:cart/services/services.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -15,11 +15,13 @@ class HomeController extends GetxController {
   final _searchController = TextEditingController();
 
   final _api = Get.find<ApiService>();
+  final _auth = Get.find<AuthService>();
 
   List<String> get categories => _categories;
   List<Product> get products => _filteredProducts;
   TextEditingController get searchController => _searchController;
   String get selectedCategory => _selectedCategory.value;
+  String get username => (_auth.user?.name?.firstname ?? 'user'.tr).capitalize!;
 
   Future<void> fetchCategories() async {
     try {

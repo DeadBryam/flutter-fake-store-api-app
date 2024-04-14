@@ -21,7 +21,7 @@ class HomePresentation extends GetView<HomeController> {
                   children: [
                     Text(
                       'welcome'.trParams({
-                        'name': 'User',
+                        'name': controller.username,
                       }),
                       style: Get.textTheme.bodySmall?.copyWith(
                         fontWeight: FontWeight.bold,
