@@ -25,7 +25,8 @@ class MainApp extends StatefulWidget {
 Future<void> _initServices() async {
   Get
     ..lazyPut(ApiService.new)
-    ..lazyPut(AuthService.new);
+    ..lazyPut(AuthService.new)
+    ..lazyPut(CartService.new);
 }
 
 class _MainAppState extends State<MainApp> {
