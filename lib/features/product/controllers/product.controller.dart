@@ -14,6 +14,7 @@ class ProductController extends GetxController {
   final _quantity = 1.obs;
 
   final _api = Get.find<ApiService>();
+  final _auth = Get.find<AuthService>();
 
   int? get id => _id.value;
   Product? get product => _product.value;
@@ -45,7 +46,7 @@ class ProductController extends GetxController {
     try {
       _isAddingToCart.value = true;
       final res = await _api.addToCart(
-        userId: 1,
+        userId: _auth.id!,
         products: [
           {
             'productId': product?.id,
