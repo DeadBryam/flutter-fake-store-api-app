@@ -15,6 +15,7 @@ class ProductPresentation extends GetView<ProductController> {
     return Scaffold(
       body: Obx(
         () => SingleChildScrollView(
+          padding: const EdgeInsets.only(bottom: 40),
           child: controller.isFetching
               ? SizedBox(
                   height: Get.height,
