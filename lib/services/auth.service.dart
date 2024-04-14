@@ -91,10 +91,14 @@ class AuthService extends GetxService {
     }
   }
 
-  void logout() {
+  Future<void> logout() async {
     _token.value = '';
     _user.value = null;
-    Get.offNamedUntil<dynamic>(Routes.HOME, (route) => route.isFirst);
+    await _box.remove('_token');
+
+    unawaited(
+      Get.offNamedUntil<dynamic>(Routes.HOME, (route) => route.isFirst),
+    );
   }
 
   Future<void> _init() async {
