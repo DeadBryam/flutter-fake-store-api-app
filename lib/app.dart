@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:cart/routes/app.routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:get/get.dart';
@@ -25,6 +26,8 @@ class _MainAppState extends State<MainApp> {
           decelerationRate: ScrollDecelerationRate.fast,
         ),
       ),
+      initialRoute: Routes.SPLASH,
+      getPages: Routes.routes,
       defaultTransition: Transition.cupertino,
       transitionDuration: const Duration(milliseconds: 300),
     );
