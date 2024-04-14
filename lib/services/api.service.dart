@@ -40,4 +40,11 @@ class ApiService extends GetxService {
       'products/$id',
     );
   }
+
+  Future<Response> getUserById(int id) {
+    return _apiClient.execute(
+      RequestType.GET,
+      'users/$id',
+    );
+  }
 }
