@@ -70,49 +70,72 @@ class HomePresentation extends GetView<HomeController> {
                       ),
                     )
                   else ...[
-                    SizedBox(
-                      height: 50,
-                      child: ListView(
-                        shrinkWrap: true,
-                        scrollDirection: Axis.horizontal,
-                        children: List.generate(
-                          controller.categories.length,
-                          (index) {
-                            final category = controller.categories[index];
-                            final isSelected =
-                                controller.selectedCategory == category;
-                            return CategoryItem(
-                              category: category,
-                              isSelected: isSelected,
-                              onTap: controller.selectCategory,
-                            );
-                          },
+                    if (controller.categories.isNotEmpty)
+                      SizedBox(
+                        height: 50,
+                        child: ListView(
+                          shrinkWrap: true,
+                          scrollDirection: Axis.horizontal,
+                          children: List.generate(
+                            controller.categories.length,
+                            (index) {
+                              final category = controller.categories[index];
+                              final isSelected =
+                                  controller.selectedCategory == category;
+                              return CategoryItem(
+                                category: category,
+                                isSelected: isSelected,
+                                onTap: controller.selectCategory,
+                              );
+                            },
+                          ),
                         ),
                       ),
-                    ),
                     Divider(
                       height: 40,
                       thickness: 2,
                       color: Colors.grey.shade200,
                     ),
-                    GridView.count(
-                      physics: const NeverScrollableScrollPhysics(),
-                      shrinkWrap: true,
-                      crossAxisCount: 2,
-                      crossAxisSpacing: 20,
-                      mainAxisSpacing: 20,
-                      childAspectRatio: 0.8,
-                      children: List.generate(
-                        controller.products.length,
-                        (index) {
-                          final product = controller.products[index];
-                          return ProductCard(
-                            product: product,
-                            onTap: controller.onProductTap,
-                          );
-                        },
+                    if (controller.products.isNotEmpty)
+                      GridView.count(
+                        physics: const NeverScrollableScrollPhysics(),
+                        shrinkWrap: true,
+                        crossAxisCount: 2,
+                        crossAxisSpacing: 20,
+                        mainAxisSpacing: 20,
+                        childAspectRatio: 0.8,
+                        children: List.generate(
+                          controller.products.length,
+                          (index) {
+                            final product = controller.products[index];
+                            return ProductCard(
+                              product: product,
+                              onTap: controller.onProductTap,
+                            );
+                          },
+                        ),
+                      )
+                    else
+                      Center(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(
+                              Icons.sentiment_very_dissatisfied_rounded,
+                              size: 100,
+                              color: Get.theme.primaryColor,
+                            ),
+                            Text(
+                              'no_products_found'.tr,
+                              style: Get.textTheme.bodyLarge,
+                            ),
+                            Text(
+                              'no_products_found_description'.tr,
+                              style: Get.textTheme.bodySmall,
+                            ),
+                          ],
+                        ),
                       ),
-                    ),
                   ],
                 ],
               ),
