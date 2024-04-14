@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:cart/core/core.dart';
+import 'package:cart/langs/langs.dart';
 import 'package:cart/routes/app.routes.dart';
 import 'package:cart/services/api.service.dart';
 import 'package:flutter/material.dart';
@@ -36,6 +37,9 @@ class _MainAppState extends State<MainApp> {
       theme: ThemeUtil.themeData,
       initialRoute: Routes.SPLASH,
       getPages: Routes.routes,
+      locale: Translation.defaultLocale,
+      fallbackLocale: Translation.defaultLocale,
+      translations: Translation(),
       defaultTransition: Transition.cupertino,
       transitionDuration: const Duration(milliseconds: 300),
     );
