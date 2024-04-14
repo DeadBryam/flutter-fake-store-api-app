@@ -163,6 +163,10 @@ class CartService extends GetxService {
     return _cart.any((c) => c.products!.any((p) => p.productId == productId));
   }
 
+  void clear() {
+    _cart.clear();
+  }
+
   @override
   void onInit() {
     fetchCart();
