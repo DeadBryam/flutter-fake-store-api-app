@@ -8,8 +8,9 @@ class ThemeUtil {
     appBarTheme: const AppBarTheme(
       backgroundColor: Colors.white,
       titleTextStyle: TextStyle(
-        fontSize: 24,
+        fontSize: 20,
         fontWeight: FontWeight.bold,
+        color: Colors.black,
       ),
     ),
     scaffoldBackgroundColor: Colors.white,
