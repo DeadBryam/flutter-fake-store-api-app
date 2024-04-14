@@ -74,8 +74,10 @@ class HomeController extends GetxController {
     final filtered = _products.where((product) {
       final containsCategory = product.category == _selectedCategory.value ||
           _selectedCategory.value == 'all';
-      final containsProduct =
-          product.title?.contains(_searchController.text) ?? false;
+      final containsProduct = product.title
+              ?.toLowerCase()
+              .contains(_searchController.text.toLowerCase()) ??
+          false;
 
       return containsProduct && containsCategory;
     });
