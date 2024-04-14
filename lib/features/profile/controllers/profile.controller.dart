@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 
 class ProfileController extends GetxController {
   final _auth = Get.find<AuthService>();
+  final _cart = Get.find<CartService>();
 
   User? get user => _auth.user;
   String get fullName =>
@@ -15,6 +16,7 @@ class ProfileController extends GetxController {
       ].join(', ');
 
   void onLogout() {
+    _cart.clear();
     _auth.logout();
   }
 }
