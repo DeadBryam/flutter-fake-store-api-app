@@ -1,4 +1,4 @@
-package com.example.verygoodcore.cart
+package app.test.cart
 
 import io.flutter.embedding.android.FlutterActivity
 

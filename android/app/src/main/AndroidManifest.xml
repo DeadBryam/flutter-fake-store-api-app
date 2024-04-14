@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.verygoodcore.cart">
+    package="app.test.cart">
    <application
         android:label="${appName}"
         android:name="${applicationName}"
