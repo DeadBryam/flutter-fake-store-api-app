@@ -72,4 +72,11 @@ class ApiService extends GetxService {
       'carts/user/$userId',
     );
   }
+
+  Future<Response> deleteCartById(int id) {
+    return _apiClient.execute(
+      RequestType.DELETE,
+      'carts/$id',
+    );
+  }
 }
