@@ -35,5 +35,10 @@ class Routes {
       binding: ProfileBinding(),
       middlewares: [AuthMiddleware()],
     ),
+    GetPage(
+      name: PRODUCT,
+      page: ProductPresentation.new,
+      binding: ProductBinding(),
+    ),
   ];
 }
