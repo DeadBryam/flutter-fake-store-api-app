@@ -11,6 +11,10 @@ class CartPresentation extends GetView<CartController> {
       appBar: AppBar(
         title: Text('cart'.tr),
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: controller.reloadCart,
+        child: const Icon(Icons.refresh),
+      ),
       body: Obx(
         () => !controller.isFetching
             ? controller.cart.isEmpty
@@ -35,10 +39,13 @@ class CartPresentation extends GetView<CartController> {
                     ),
                   )
                 : ListView.separated(
-                    padding: const EdgeInsets.all(20),
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
                     itemCount: controller.cart.length,
-                    separatorBuilder: (context, index) =>
-                        const Divider(height: 40),
+                    separatorBuilder: (context, index) => Divider(
+                      height: 30,
+                      thickness: 1,
+                      color: Colors.grey.shade300,
+                    ),
                     itemBuilder: (context, index) {
                       final cart = controller.cart[index];
                       return CartItem(
