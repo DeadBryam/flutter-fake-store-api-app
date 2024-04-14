@@ -11,6 +11,7 @@ class HomeController extends GetxController {
   final _selectedCategory = 'all'.obs;
 
   final _filteredProducts = <Product>[].obs;
+  final _isFetching = false.obs;
 
   final _searchController = TextEditingController();
 
@@ -22,6 +23,7 @@ class HomeController extends GetxController {
   TextEditingController get searchController => _searchController;
   String get selectedCategory => _selectedCategory.value;
   String get username => (_auth.user?.name?.firstname ?? 'user'.tr).capitalize!;
+  bool get isFetching => _isFetching.value;
 
   Future<void> fetchCategories() async {
     try {
@@ -81,10 +83,16 @@ class HomeController extends GetxController {
     onSearch();
   }
 
+  Future<void> _onInit() async {
+    _isFetching.value = true;
+    await fetchCategories();
+    await fetchProducts();
+    _isFetching.value = false;
+  }
+
   @override
   void onInit() {
-    fetchCategories();
-    fetchProducts();
+    _onInit();
     super.onInit();
   }
 }

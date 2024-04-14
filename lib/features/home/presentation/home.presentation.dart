@@ -53,47 +53,60 @@ class HomePresentation extends GetView<HomeController> {
             ),
             const SizedBox(height: 20),
             Obx(
-              () => SizedBox(
-                height: 50,
-                child: ListView(
-                  shrinkWrap: true,
-                  scrollDirection: Axis.horizontal,
-                  children: List.generate(
-                    controller.categories.length,
-                    (index) {
-                      final category = controller.categories[index];
-                      final isSelected =
-                          controller.selectedCategory == category;
-                      return CategoryItem(
-                        category: category,
-                        isSelected: isSelected,
-                        onTap: controller.selectCategory,
-                      );
-                    },
-                  ),
-                ),
-              ),
-            ),
-            Divider(
-              height: 40,
-              thickness: 2,
-              color: Colors.grey.shade200,
-            ),
-            Obx(
-              () => GridView.count(
-                physics: const NeverScrollableScrollPhysics(),
-                shrinkWrap: true,
-                crossAxisCount: 2,
-                childAspectRatio: 0.8,
-                children: List.generate(
-                  controller.products.length,
-                  (index) {
-                    final product = controller.products[index];
-                    return ProductCard(
-                      product: product,
-                    );
-                  },
-                ),
+              () => Column(
+                children: [
+                  if (controller.isFetching)
+                    const Center(
+                      child: Padding(
+                        padding: EdgeInsets.all(60),
+                        child: CircularProgressIndicator(),
+                      ),
+                    )
+                  else ...[
+                    SizedBox(
+                      height: 50,
+                      child: ListView(
+                        shrinkWrap: true,
+                        scrollDirection: Axis.horizontal,
+                        children: List.generate(
+                          controller.categories.length,
+                          (index) {
+                            final category = controller.categories[index];
+                            final isSelected =
+                                controller.selectedCategory == category;
+                            return CategoryItem(
+                              category: category,
+                              isSelected: isSelected,
+                              onTap: controller.selectCategory,
+                            );
+                          },
+                        ),
+                      ),
+                    ),
+                    Divider(
+                      height: 40,
+                      thickness: 2,
+                      color: Colors.grey.shade200,
+                    ),
+                    GridView.count(
+                      physics: const NeverScrollableScrollPhysics(),
+                      shrinkWrap: true,
+                      crossAxisCount: 2,
+                      crossAxisSpacing: 10,
+                      mainAxisSpacing: 10,
+                      childAspectRatio: 0.8,
+                      children: List.generate(
+                        controller.products.length,
+                        (index) {
+                          final product = controller.products[index];
+                          return ProductCard(
+                            product: product,
+                          );
+                        },
+                      ),
+                    ),
+                  ],
+                ],
               ),
             ),
           ],
